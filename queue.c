@@ -47,16 +47,10 @@ bool q_insert_head(queue_t *q, char *s)
     if (!q)
         return false;
 
-    newh = malloc(sizeof(list_ele_t));
+    length = strlen(s) + 1;
+    newh = malloc(sizeof(list_ele_t) + sizeof(char) * length);
     if (!newh)
         return false;
-
-    length = strlen(s) + 1;
-    newh->value = malloc(sizeof(char) * length);
-    if (!newh->value) {
-        free(newh);
-        return false;
-    }
 
     strncpy(newh->value, s, length);
     newh->next = q->head;
@@ -81,16 +75,10 @@ bool q_insert_tail(queue_t *q, char *s)
     if (!q)
         return false;
 
-    newh = malloc(sizeof(list_ele_t));
+    length = strlen(s) + 1;
+    newh = malloc(sizeof(list_ele_t) + sizeof(char) * length);
     if (!newh)
         return false;
-
-    length = strlen(s) + 1;
-    newh->value = malloc(sizeof(char) * length);
-    if (!newh->value) {
-        free(newh);
-        return false;
-    }
 
     strncpy(newh->value, s, length);
     newh->next = NULL;
@@ -126,7 +114,6 @@ bool q_remove_head(queue_t *q, char *sp, size_t bufsize)
 
     tmp = q->head;
     q->head = q->head->next;
-    free(tmp->value);
     free(tmp);
     if (!q->head)
         q->tail = NULL;

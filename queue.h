@@ -18,8 +18,8 @@ typedef struct ELE {
     /* Pointer to array holding string.
      * This array needs to be explicitly allocated and freed
      */
-    char *value;
     struct ELE *next;
+    char value[];
 } list_ele_t;
 
 /* Queue structure */
