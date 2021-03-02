@@ -7,3 +7,4 @@ qtest
 core*
 .cmd_history
 tags
+cscope.*
