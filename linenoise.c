@@ -1195,6 +1195,8 @@ static void freeHistory(void)
         for (j = 0; j < history_len; j++)
             free(history[j]);
         free(history);
+        history_len = 0;
+        history = NULL;
     }
 }
 
