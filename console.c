@@ -202,7 +202,7 @@ static void record_error()
     err_cnt++;
     if (err_cnt >= err_limit) {
         report(1, "Error limit exceeded.  Stopping command execution");
-        quit_flag = true;
+        do_quit_cmd(0, NULL);
     }
 }
 
